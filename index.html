@@ -12,27 +12,30 @@
 </head>
 
 <header>
-    <h1 class="is-size-1 title has-text-centered has-text-danger has-background-grey-light box">Fanbook.com</h1>
+    <h1 class="is-size-1 title has-text-centered has-text-danger has-background-grey-light box">
+        Fanbook.com
+    </h1>
 </header>
 
 <body>
-    <section class=" searchbox hero is-medium section has-background-primary has-text-centered columns is-vcentered ">
-        <div class="hero-body box column is-5 py-1">
-        <p class="title">
-                Connect With Your Favorite Artist Here!
-             <input class="input is-focus is-danger my-3 py-6 is-centered is-medium" type="text" placeholder="Ex. ChampangePapi">
-            <button class="button is-danger is-rounded my-1">Search</button>
-            </p>
-            <h1 class="subtitle my-1">
-                    <u>Past Searches</u>
-            </h1>
-            <button id="past-search" class="button is-danger is-light my-1 is-medium">Past Search</button>  
+    <section id="lander" class=" searchbox hero is-medium section has-background-primary has-text-centered columns is-vcentered ">
+        <div id="main-search" class="hero-body box column is-5 py-1">
+            <p class="title">
+                    Connect With Your Favorite Artist Here!
+            </p>        
+                <input  id="artist-input" class="input is-focus is-danger my-3 py-6 is-centered is-medium" type="text" placeholder="Ex. ChampangePapi">
+                <button id="search-btn" class="button is-danger is-rounded my-1">Search</button>
+                </p>
+                <h1 class="subtitle my-1">
+                        <u>Past Searches</u>
+                </h1>
+                  
         </div>
-        <div class ="box column is-6 has-background-danger"> 
-            <div class="card">
-                <div class="card-content is-small">
+        <div id="results-cache" class ="box column is-6 has-background-danger"> 
+            <div id="card-result-1" class="card">
+                <div id="results-card" class="card-content is-small">
                   <div id="searchresult" class="content">
-                    <p>instagram link</p>
+                    <p id="external-link">instagram link</p>
                     <p>spotify link </p>
                     <p>twitter link?</p>
                   </div>
