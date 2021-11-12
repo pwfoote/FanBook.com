@@ -5,12 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Fanbook.com</title>
 </head>
+
+<header>
+    <h1 class="is-size-1 title has-text-centered has-text-danger has-background-grey-light box">Fanbook.com</h1>
+</header>
+
 <body>
+    <section class=" searchbox hero is-medium section has-background-primary has-text-centered columns is-vcentered ">
+        <div class="hero-body box column is-5 py-1">
+        <p class="title">
+                Connect With Your Favorite Artist Here!
+             <input class="input is-focus is-danger my-3 py-6 is-centered is-medium" type="text" placeholder="Ex. ChampangePapi">
+            <button class="button is-danger is-rounded my-1">Search</button>
+            </p>
+            <h1 class="subtitle my-1">
+                    <u>Past Searches</u>
+            </h1>
+            <button id="past-search" class="button is-danger is-light my-1 is-medium">Past Search</button>  
+        </div>
+        <div class ="box column is-6 has-background-danger"> 
+            <div class="card">
+                <div class="card-content is-small">
+                  <div id="searchresult" class="content">
+                    <p>instagram link</p>
+                    <p>spotify link </p>
+                    <p>twitter link?</p>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </section>
+      
  
+
     <script src="assets/JS/script.js"></script>
 </body>
 </html>
