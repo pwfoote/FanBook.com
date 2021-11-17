@@ -1,5 +1,5 @@
 # FanBook
-Group Project 1
+Group Project 1 for Full Stack Development Course with BootCampSpot
 
 # User Story
 As Music Fan I am looking to find my favorite artist Social Media Profile(s)
