@@ -13,3 +13,9 @@ As a Music Fan I am looking to fin my favorite artist's Social Media Profiles
 When I search my favorite Artist
 Then I am Presented with My Favorites Artist's Social Media Outlets
 APIs: Spotify & Facebook/Instagram
+
+MusicBrainz API
+https://musicbrainz.org/doc/MusicBrainz_API
+
+Discogs API
+https://www.discogs.com/developers
