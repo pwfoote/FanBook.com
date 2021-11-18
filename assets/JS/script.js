@@ -84,6 +84,7 @@ var searchMusicInfo = function(id) {
         // Loop through social networks array
         for (let i = 0; i < socialNetworks.length; i++) {
           var result = document.createElement("a");
+          result.href = socialNetworks[i].url.resource;
           result.textContent = socialNetworks[i].url.resource;
           result.classList = "has-background-white card-content column";
           resultNetworks.classList = "has-background-white card-content column";
