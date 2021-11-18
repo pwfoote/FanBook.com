@@ -7,11 +7,14 @@ When I Search my Favorite Artist
 Then I am Presented with My Favorite Artist's Most Recent Data
 
 # Languages Used
-Javascript HTMl CSS:
-                    -(Bulma.io)
+-Javascript 
+-HTMl 
+-CSS:
+-(Bulma.io)
 
-# Github Pages Url
+# URLS
 Repo: (https://github.com/pwfoote/group-project-1)
+Deployed Website: (https://pwfoote.github.io/FanBook.com/)
 
 # Developers
 Preston Foote, Patrick Hopps, Isaac Andrade, Tyreeze Weddington and Colton Ward
