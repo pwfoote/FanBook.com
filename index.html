@@ -23,46 +23,21 @@
           <h2 class="card-header-title is-size-4 has-text-danger">Connect With Your Favorite Artist Here!</h2>
         </header>
         <div class="card-content">
-          <label for="artist-input" class="label is-size-5">Artist Name</label>
-          <input type="text" placeholder="Ex. ChampangePapi" id="artist-input" class="input is-medium is-centered is-focus is-rounded my-1 py-2">
-          <button type="submit" id="search-btn" class="button is-rounded my-1 is-danger is-fullwidth has-text-black has-text-weight-bold ">Search</button>
+          <form id="search-form">
+            <label for="artist" class="label is-size-5">Artist Name</label>
+            <auto-complete api="https://musicbrainz.org/ws/2/artist?query=artist:${artist}&fmt=json" resultdata="artists" resultname="name" querymin="1" optionmax="100">
+              <input type="text" placeholder="Ex. Drake" id="artist" name="artist" class="input is-medium is-centered is-focus is-rounded my-1 py-2" required />
+            </auto-complete>
+            <button type="submit" id="search-btn" class="button is-rounded my-1 is-danger is-fullwidth has-text-black has-text-weight-bold ">Search</button>
+          </form>
         </div>
       </div>
     </div>
     <div class="column is-12-mobile is-8-desktop columns" id="search-result">
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/datalist-ajax/dist/datalist-ajax.min.js"></script>
   <script src="assets/JS/script.js"></script>
 </body>
 
 </html>
-
-  <!-- 
-    Previous Body Content:
-    
-      <section id="lander" class=" searchbox hero is-medium section has-background-primary has-text-centered columns is-vcentered ">
-        <div id="main-search" class="hero-body box column is-5 py-1">
-            <p class="title">
-                    Connect With Your Favorite Artist Here!
-            </p>        
-                <input  id="artist-input" class="input is-focus is-danger my-3 py-6 is-centered is-medium" type="text" placeholder="Ex. ChampangePapi">
-                <button id="search-btn" class="button is-danger is-rounded my-1">Search</button>
-                </p>
-                <h1 class="subtitle my-1">
-                        <u>Past Searches</u>
-                </h1>
-                  
-        </div>
-        <div id="results-cache" class ="box column is-6 has-background-danger"> 
-            <div id="card-result-1" class="card">
-                <div id="results-card" class="card-content is-small">
-                  <div id="searchresult" class="content">
-                    <p id="external-link">instagram link</p>
-                    <p>spotify link </p>
-                    <p>twitter link?</p>
-                  </div>
-                </div>
-              </div>
-        </div>
-      </section>
- -->
