@@ -40,7 +40,7 @@ var searchDisc = function(artistName) {
 
         resultCoverImage.classList = "image is-128x128";
         resultCoverImage.appendChild(resultImage);
-        resultImage.setAttribute("src", data.results[0].cover_image);
+        resultImage.setAttribute("src", data.results[0].cover_image );
         
         resultDiv.appendChild(resultTitle);
         resultDiv.appendChild(resultCoverImage);
@@ -89,6 +89,7 @@ var searchMusicInfo = function(id) {
           result.classList = "has-background-white card-content column";
           resultNetworks.classList = "has-background-white card-content column";
           resultNetworks.appendChild(result);
+          result.setAttribute('target', '_blank');
         }
         resultDiv.appendChild(resultNetworks);
       })
