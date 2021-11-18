@@ -1,4 +1,9 @@
-.searchbox {
-    position: relative;
-    margin: 0px 0px 0px 0px;
+
+.card-content {
+    background-image: url("/assets/images/background.jpg");
+
+}
+
+.results-card-twitter{
+    text-decoration: underline;
 }
