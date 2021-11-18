@@ -1,6 +1,13 @@
 var searchButton = document.querySelector("#search-btn");
 var displayResults = document.querySelector("#search-result");
 var inputEl = document.querySelector("#artist");
+var resultDiv = document.querySelector("#result-div");
+var resultTitle = document.querySelector("#result-title");
+
+var resultCoverImage = document.createElement("figure");
+var resultImage = document.createElement("img");
+var resultNetworks = document.createElement("div");
+
 
 // Get artist name from user to search APIs
 var getArtistName = function(event) {
@@ -28,7 +35,16 @@ var searchDisc = function(artistName) {
   fetch(discogsUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-        console.log(data);
+        resultTitle.innerHTML = data.results[0].title;
+        resultTitle.classList = "results-card-twitter card-header-title has-text-white";
+
+        resultCoverImage.classList = "image is-128x128";
+        resultCoverImage.appendChild(resultImage);
+        resultImage.setAttribute("src", data.results[0].cover_image);
+        
+        resultDiv.appendChild(resultTitle);
+        resultDiv.appendChild(resultCoverImage);
+        displayResults.appendChild(resultDiv);
       })
     } else {
       // TODO: change alert to modal
@@ -67,8 +83,13 @@ var searchMusicInfo = function(id) {
 
         // Loop through social networks array
         for (let i = 0; i < socialNetworks.length; i++) {
-          console.log(socialNetworks[i].url);
+          var result = document.createElement("a");
+          result.textContent = socialNetworks[i].url.resource;
+          result.classList = "has-background-white card-content column";
+          resultNetworks.classList = "has-background-white card-content column";
+          resultNetworks.appendChild(result);
         }
+        resultDiv.appendChild(resultNetworks);
       })
     } else {
       // TODO: change alert to modal
