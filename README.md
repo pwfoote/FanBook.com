@@ -13,7 +13,7 @@ Javascript HTMl CSS:
 # Github Pages Url
 Repo: (https://github.com/pwfoote/group-project-1)
 
-# Devolpers
+# Developers
 Preston Foote, Patrick Hopps, Isaac Andrade, Tyreeze Weddington and Colton Ward
 
 # API's Used
