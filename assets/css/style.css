@@ -1,9 +1,31 @@
-
-.card-content {
-    background-image: url("/assets/images/background.jpg");
-
+.media {
+    background-image: url(https://images.freeimages.com/images/large-previews/ce5/real-equalizer-1163889.jpg);
+    
 }
 
+img {
+    width: fit-content;
+    border: 3px solid black;
+    margin: 5px;
+    
+}
 .results-card-twitter{
     text-decoration: underline;
+}
+
+.media {
+    display: flex;
+
+}
+.media-left {
+flex: 1;
+}
+
+.media-content {
+    flex: 1;
+}
+
+.fanbook-header{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    margin: 10px 10px 10px 10px;
 }
