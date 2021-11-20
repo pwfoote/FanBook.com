@@ -8,16 +8,13 @@ var resultImage = document.createElement("img");
 var media = document.createElement("div");
 var mediaLeft = document.createElement("div");
 var infoDiv = document.createElement("div");
-//artistArr = JSON.parse(localStorage.getItem("artist")) || [];
-//console.log(artistArr);
-
-
 var resultNetworks = document.createElement("div");
-
+var artistArr = localStorage.getItem("artist");
+console.log(artistArr);
 
 // Get artist name from user to search APIs
 var getArtistName = function(event) {
-   event.preventDefault();
+  event.preventDefault();
 
   // Get name from user input element
   var artistName = inputEl.value.trim();
@@ -44,49 +41,49 @@ var searchDisc = function(artistName) {
       response.json().then(function(data) {
         displayArtist(data);
         localStorage.setItem("artist", data.results[0].title);
-    })
-} else {
-  // TODO: change alert to modal
-  alert("Error: Artist not found in Discogs!");
-}
+      })
+    } else {
+      // TODO: change alert to modal
+      alert("Error: Artist not found in Discogs!");
+    }
   })
 }
 
 var displayArtist = function(data) {
 
-    resultDiv.innerHTML = "";
+  resultDiv.innerHTML = "";
 
-    resultDiv.classList.add("card", "has-text-centered", "artist-div");
-    var resultTitleHeader = document.createElement("header");
-    resultTitleHeader.classList.add("card-header", "has-background-black")
+  resultDiv.classList.add("card", "has-text-centered", "artist-div");
+  var resultTitleHeader = document.createElement("header");
+  resultTitleHeader.classList.add("card-header", "has-background-black")
 
-    var resultTitle = document.createElement("h2");
-    resultTitle.innerHTML = data.results[0].title;
-    resultTitle.classList.add("card-header-title", "is-size-3", "has-text-centered", "has-text-white");
+  var resultTitle = document.createElement("h2");
+  resultTitle.innerHTML = data.results[0].title;
+  resultTitle.classList.add("card-header-title", "is-size-3", "has-text-centered", "has-text-white");
 
-    media.classList = "media"
-
-    
-    mediaLeft.classList = "media-left"
-    media.appendChild(mediaLeft);
+  media.classList = "media"
 
 
-    cardImg.classList = "card-image";
-    
+  mediaLeft.classList = "media-left"
+  media.appendChild(mediaLeft);
 
-    
-    resultCoverImage.classList = "image";
-    cardImg.appendChild(resultCoverImage);
-    resultCoverImage.appendChild(resultImage);
-    
-    resultImage.setAttribute("src", data.results[0].cover_image );
-    
-   
-    resultDiv.appendChild(resultTitleHeader);
-    resultTitleHeader.appendChild(resultTitle);
-    mediaLeft.appendChild(cardImg);
-    resultDiv.appendChild(media)
-    displayResults.appendChild(resultDiv);
+
+  cardImg.classList = "card-image";
+
+
+
+  resultCoverImage.classList = "image";
+  cardImg.appendChild(resultCoverImage);
+  resultCoverImage.appendChild(resultImage);
+
+  resultImage.setAttribute("src", data.results[0].cover_image);
+
+
+  resultDiv.appendChild(resultTitleHeader);
+  resultTitleHeader.appendChild(resultTitle);
+  mediaLeft.appendChild(cardImg);
+  resultDiv.appendChild(media)
+  displayResults.appendChild(resultDiv);
 
 }
 
@@ -98,7 +95,7 @@ var searchMusicId = function(artistName) {
   fetch(mbUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-          console.log(data);
+        console.log(data);
         searchMusicInfo(data.artists[0].id);
       })
     } else {
@@ -117,8 +114,8 @@ var searchMusicInfo = function(id) {
   fetch(mbInfoUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-          console.log(data);
-          displayInfo(data);
+        console.log(data);
+        displayInfo(data);
         let socialNetworks = data.relations.filter(item => item.type === "social network");
         displaySocialMedia(socialNetworks);
       })
@@ -130,33 +127,40 @@ var searchMusicInfo = function(id) {
 }
 
 var displayInfo = function(data) {
-    infoDiv.innerHTML = "";
-    
-    infoDiv.classList = "m-2 has-text-centered has-background-danger has-text-white is-rounded";
-    mediaLeft.appendChild(infoDiv);
+  infoDiv.innerHTML = "";
 
-    var info = document.createElement("h4");
-    info.textContent = data.disambiguation;
+  infoDiv.classList = "m-2 has-text-centered has-background-danger has-text-white is-rounded";
+  mediaLeft.appendChild(infoDiv);
 
-    infoDiv.appendChild(info);
+  var info = document.createElement("h4");
+  info.textContent = data.disambiguation;
+
+  infoDiv.appendChild(info);
 
 }
 
 var displaySocialMedia = function(socialNetworks) {
-    resultNetworks.innerHTML = ""
+  resultNetworks.innerHTML = ""
 
-    // Loop through social networks array
-    for (let i = 0; i < socialNetworks.length; i++) {
-        var result = document.createElement("a");
-        result.href = socialNetworks[i].url.resource;
-        result.textContent = socialNetworks[i].url.resource;
-        result.classList = " content column button is-rounded is-danger is-hovered";
-        resultNetworks.classList = " media-content column";
-        resultNetworks.appendChild(result);
-        result.setAttribute('target', '_blank');
-      }
-      media.appendChild(resultNetworks);
+  // Loop through social networks array
+  for (let i = 0; i < socialNetworks.length; i++) {
+    var result = document.createElement("a");
+    result.href = socialNetworks[i].url.resource;
+    result.textContent = socialNetworks[i].url.resource;
+    result.classList = " content column button is-rounded is-danger is-hovered";
+    resultNetworks.classList = " media-content column";
+    resultNetworks.appendChild(result);
+    result.setAttribute('target', '_blank');
+  }
+  media.appendChild(resultNetworks);
+}
 
+if (artistArr) {
+  searchDisc(artistArr);
+  searchMusicId(artistArr);
+}
+
+var displayModal = function(modalText) {
 
 }
 
