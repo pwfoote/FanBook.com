@@ -10,7 +10,9 @@ var mediaLeft = document.createElement("div");
 var infoDiv = document.createElement("div");
 var resultNetworks = document.createElement("div");
 var artistArr = localStorage.getItem("artist");
-console.log(artistArr);
+var modal = document.getElementById("modal");
+var modalText = document.getElementById("modal-text");
+var closeModal = document.getElementsByClassName("close")[0];
 
 // Get artist name from user to search APIs
 var getArtistName = function(event) {
@@ -26,7 +28,7 @@ var getArtistName = function(event) {
     inputEl.value = "";
   } else {
     // TODO: change alert to modal
-    alert("Please enter an Artist Name!");
+    displayModal("Please enter an Artist Name!");
   }
 }
 
@@ -44,7 +46,7 @@ var searchDisc = function(artistName) {
       })
     } else {
       // TODO: change alert to modal
-      alert("Error: Artist not found in Discogs!");
+      displayModal("Error: Artist not found in Discogs!");
     }
   })
 }
@@ -100,7 +102,7 @@ var searchMusicId = function(artistName) {
       })
     } else {
       // TODO: Change alert to modal
-      alert("Error: Artist not found in MusicBrainz!");
+      displayModal("Error: Artist not found in MusicBrainz!");
     }
   })
 }
@@ -121,7 +123,7 @@ var searchMusicInfo = function(id) {
       })
     } else {
       // TODO: change alert to modal
-      alert("Error: Artist's social networks not found in MusicBrainz!");
+      displayModal("Error: Artist's social networks not found in MusicBrainz!");
     }
   })
 }
@@ -160,8 +162,22 @@ if (artistArr) {
   searchMusicId(artistArr);
 }
 
-var displayModal = function(modalText) {
+var displayModal = function(modalString) {
+  modal.style.display = "block";
+  modalText.textContent = "";
+  modalText.textContent = modalString;
+}
 
+// When the user clicks on <span> (x), close the modal
+closeModal.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 searchButton.addEventListener("click", getArtistName);
