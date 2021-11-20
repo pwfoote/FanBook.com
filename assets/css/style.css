@@ -1,9 +1,21 @@
-
-.card-content {
-    background-image: url("/assets/images/background.jpg");
-
+img {
+    width: fit-content;
+    border: 3px solid black;
+    margin: 5px;
+    
 }
-
 .results-card-twitter{
     text-decoration: underline;
+}
+
+.media {
+    display: flex;
+
+}
+.media-left {
+flex: 1;
+}
+
+.media-content {
+    flex: 1;
 }
