@@ -1,27 +1,39 @@
 # FanBook.com
+
+## Description
+
 Group Project 1 for Full Stack Development Course with BootCampSpot
 
-# User Story
+## User Story
+
+```
 As an Audiophile I am Looking to Find my favorite artist Most Recent Data 
 When I Search my Favorite Artist 
 Then I am Presented with My Favorite Artist's Most Recent Data
+```
 
-# Languages Used
--Javascript 
--HTMl 
--CSS:
--(Bulma.io)
+## Languages Used
 
-# URLS
-Repo: (https://github.com/pwfoote/group-project-1)
-Deployed Website: (https://pwfoote.github.io/FanBook.com/)
+* HTML
+* CSS 
+  * [Bulma](https://bulma.io/)
+* Javascript
+  * [jQuery](https://jquery.com/)
 
-# Developers
-Preston Foote, Patrick Hopps, Isaac Andrade, Tyreeze Weddington and Colton Ward
+## URLs
 
-# API's Used
-MusicBrainz API
-(https://musicbrainz.org/doc/MusicBrainz_API)
+* [GitHub repository](https://github.com/pwfoote/FanBook.com/)
+* [Deployed website](https://pwfoote.github.io/FanBook.com/)
 
-Discogs API
-(https://www.discogs.com/developers)
+## Developers
+
+* Preston Foote
+* Patrick Hopps
+* Isaac Andrade
+* Tyreeze Weddington
+* Colton Ward
+
+## APIs Used
+
+* [MusicBrainz API](https://musicbrainz.org/doc/MusicBrainz_API)
+* [Discogs API](https://www.discogs.com/developers)
