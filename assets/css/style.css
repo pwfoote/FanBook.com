@@ -69,3 +69,24 @@ img {
   text-decoration: none;
   cursor: pointer;
 }
+
+@media  screen and (max-width : 600px) {
+ header {
+     width: 100%;
+ }
+     main{
+
+         width:100%;
+     }
+    .media {
+        display: block;
+        
+    }
+    h4 {
+        background-color: royalblue;
+    }
+    a {
+        width: fit-content;
+    }
+      
+}
