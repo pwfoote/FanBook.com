@@ -1,3 +1,4 @@
+// Variables needed for page functionality
 var searchButton = document.querySelector("#search-btn");
 var displayResults = document.querySelector("#search-result");
 var inputEl = document.querySelector("#artist");
@@ -27,123 +28,106 @@ var getArtistName = function(event) {
     searchMusicId(artistName);
     inputEl.value = "";
   } else {
-    // TODO: change alert to modal
-    displayModal("Please enter an Artist Name!");
-  }
-}
+    // Error inputting artist name
+    displayModal("Error: Please enter an Artist Name!");
+  };
+};
 
 // Search Discogs API and return artist info
 var searchDisc = function(artistName) {
 
   // JSON only return the first result from Discogs
   let discogsUrl = "https://api.discogs.com/database/search?q=" + artistName + "&key=XELicaNMkoZtoErpMlbJ&secret=fsjoNmUilNcwWiMnwaHBQnpVKniTySkp&per_page=1";
-
   fetch(discogsUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
         displayArtist(data);
         localStorage.setItem("artist", data.results[0].title);
-      })
+      });
     } else {
-      // TODO: change alert to modal
+      // Error finding artist in Discogs
       displayModal("Error: Artist not found in Discogs!");
-    }
-  })
-}
+    };
+  });
+};
 
+// Display artist information in search results
 var displayArtist = function(data) {
-
+  // Clear previous results
   resultDiv.innerHTML = "";
-
   resultDiv.classList.add("card", "has-text-centered", "artist-div");
+  // Search result title
   var resultTitleHeader = document.createElement("header");
-  resultTitleHeader.classList.add("card-header", "has-background-black")
-
+  resultTitleHeader.classList.add("card-header", "has-background-black");
   var resultTitle = document.createElement("h2");
   resultTitle.innerHTML = data.results[0].title;
   resultTitle.classList.add("card-header-title", "is-size-3", "has-text-centered", "has-text-white");
-
-  media.classList = "media"
-
-
-  mediaLeft.classList = "media-left"
+  // Search result images
+  media.classList = "media";
+  mediaLeft.classList = "media-left";
   media.appendChild(mediaLeft);
-
-
   cardImg.classList = "card-image";
-
-
-
   resultCoverImage.classList = "image";
   cardImg.appendChild(resultCoverImage);
   resultCoverImage.appendChild(resultImage);
-
   resultImage.setAttribute("src", data.results[0].cover_image);
-
-
   resultDiv.appendChild(resultTitleHeader);
   resultTitleHeader.appendChild(resultTitle);
   mediaLeft.appendChild(cardImg);
-  resultDiv.appendChild(media)
+  resultDiv.appendChild(media);
   displayResults.appendChild(resultDiv);
-
-}
+};
 
 // Search MusicBrainz API and return MusicBrainz's artist id
 var searchMusicId = function(artistName) {
   // Return artist's id from MusicBrainz API
   let mbUrl = "https://musicbrainz.org/ws/2/artist/?query=artist:" + artistName + "&fmt=json&limit=1";
-
+  // Search for artist info using MusicBrainz artist id
   fetch(mbUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-        console.log(data);
         searchMusicInfo(data.artists[0].id);
-      })
+      });
     } else {
-      // TODO: Change alert to modal
+      // Error finding artist in MusicBrainz
       displayModal("Error: Artist not found in MusicBrainz!");
-    }
-  })
-}
+    };
+  });
+};
 
 // Search MusicBrainz API and return social networks
 var searchMusicInfo = function(id) {
   // Return artist social networks from MusicBrainz API
   let mbInfoUrl = "https://musicbrainz.org/ws/2/artist/" + id + "/relationships?fmt=json&inc=url-rels";
-
   // Return all social networks for artist from MusicBrainz API
   fetch(mbInfoUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-        console.log(data);
         displayInfo(data);
         let socialNetworks = data.relations.filter(item => item.type === "social network");
         displaySocialMedia(socialNetworks);
       })
     } else {
-      // TODO: change alert to modal
+      // Error finding artist's social networks in MusicBrainz
       displayModal("Error: Artist's social networks not found in MusicBrainz!");
-    }
-  })
-}
+    };
+  });
+};
 
+// Display information describing the artist
 var displayInfo = function(data) {
   infoDiv.innerHTML = "";
-
   infoDiv.classList = "m-2 has-text-centered has-background-danger has-text-white is-rounded";
   mediaLeft.appendChild(infoDiv);
-
   var info = document.createElement("h4");
   info.textContent = data.disambiguation;
-
   infoDiv.appendChild(info);
+};
 
-}
-
+// Display artist's social networks
 var displaySocialMedia = function(socialNetworks) {
-  resultNetworks.innerHTML = ""
-
+  // Clear previous results
+  resultNetworks.innerHTML = "";
   // Loop through social networks array
   for (let i = 0; i < socialNetworks.length; i++) {
     var result = document.createElement("a");
@@ -155,29 +139,32 @@ var displaySocialMedia = function(socialNetworks) {
     result.setAttribute('target', '_blank');
   }
   media.appendChild(resultNetworks);
-}
+};
 
+// Load previous search results from local storage
 if (artistArr) {
   searchDisc(artistArr);
   searchMusicId(artistArr);
-}
+};
 
+// Display string in error modal
 var displayModal = function(modalString) {
   modal.style.display = "block";
   modalText.textContent = "";
   modalText.textContent = modalString;
-}
+};
 
-// When the user clicks on <span> (x), close the modal
+// Close modal when user clicks on close button
 closeModal.onclick = function() {
   modal.style.display = "none";
-}
+};
 
-// When the user clicks anywhere outside of the modal, close it
+// Close modal if user clicks anywhere outside modal
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-  }
-}
+  };
+};
 
+// Event listener for search button clicks
 searchButton.addEventListener("click", getArtistName);
