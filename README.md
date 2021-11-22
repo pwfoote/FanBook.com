@@ -37,3 +37,13 @@ Then I am Presented with My Favorite Artist's Most Recent Data
 
 * [MusicBrainz API](https://musicbrainz.org/doc/MusicBrainz_API)
 * [Discogs API](https://www.discogs.com/developers)
+
+## Screenshots
+
+_Example of searching for artist "Turnstile" with previous search of "Drake" on screen:_
+
+![Screenshot 1 of Fanbook](./assets/images/fanbook-scshot-1.png)
+
+_Example of searching for artist "Madonna" with previous search of "Turnstile" on screen:_
+
+![Screenshot 2 of Fanbook](./assets/images/fanbook.scshot-2.png)
