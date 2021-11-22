@@ -133,8 +133,8 @@ var displaySocialMedia = function(socialNetworks) {
     var result = document.createElement("a");
     result.href = socialNetworks[i].url.resource;
     result.textContent = socialNetworks[i].url.resource;
-    result.classList = " content column button is-rounded is-danger is-hovered";
-    resultNetworks.classList = " media-content column";
+    result.classList = "media-link content column button is-rounded is-danger is-hovered is-mobile";
+    resultNetworks.classList = " media-link media-content column";
     resultNetworks.appendChild(result);
     result.setAttribute('target', '_blank');
   }

@@ -16,30 +16,30 @@
 <body class="has-background-dark">
 
   <header>
-    <h1 class="fanbook-header is-size-1 title has-text-centered has-text-danger has-background-black box">Fanbook.com</h1>
+    <h1 class="fanbook-header is-size-1 title has-text-centered has-text-white has-background-black box is-desktop is-mobile">Fanbook.com</h1>
   </header>
 
   <main class=" m-6">
     <div class="m-6">
       <div class="card has-text-centered">
-        <header class="card-header  has-background-black">
-          <h2 class="card-header-title  is-size-4 has-text-danger">Connect With Your Favorite Artist Here!</h2>
+        <header class="search-card card-header  has-background-black">
+          <h2 class="card-header-title  is-size-2 has-text-white is-centered">Connect With Your Favorite Music Artist In One Search!</h2>
         </header>
         <div class="card-content">
           <!-- Search Form -->
           <form id="search-form">
-            <label for="artist" class="label is-size-5">Artist Name</label>
+            <label for="artist" class="label is-size-3 is-outlined">Enter Artist Name Below:</label>
             <!-- Search Autocomplete -->
             <auto-complete api="https://musicbrainz.org/ws/2/artist?query=artist:${artist}&fmt=json" resultdata="artists" resultname="name" querymin="1" optionmax="100">
-              <input type="text" placeholder="Ex. Drake" id="artist" name="artist" class="input is-medium is-centered is-focus is-rounded my-1 py-2" required />
+              <input type="text" placeholder="Ex. Drake" id="artist" name="artist" class="input is-medium is-centered is-focus is-rounded my-1 py-2 is-dark has-text-black has-text-bold" required />
             </auto-complete>
-            <button type="submit" id="search-btn" class="button is-rounded my-1 is-danger is-fullwidth has-text-black has-text-weight-bold ">Search</button>
+            <button type="submit" id="search-btn" class="button is-rounded my-1 is-danger is-fullwidth has-text-white has-text-weight-bold is-hover">Search</button>
           </form>
         </div>
       </div>
     </div>
     <!-- Search Results -->
-    <div class="m-6" id="search-result">
+    <div class="result-div m-6" id="search-result">
     </div>
 
     <!-- Modal -->
@@ -50,6 +50,8 @@
       </div>
     </div>
 
+    <footer class="has-text-white">© group7productions</footer>
+
     <!-- Search Autocomplete CDN -->
     <script src="https://cdn.jsdelivr.net/npm/datalist-ajax/dist/datalist-ajax.min.js"></script>
     <!-- jQuery -->
@@ -57,6 +59,6 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="assets/JS/script.js"></script>
-</body>
+  </body>
 
 </html>
